@@ -8,7 +8,7 @@ ARG VERSION
 RUN apk add curl \
  && curl -L -O https://github.com/Radarr/Radarr/releases/download/v$VERSION/Radarr.develop.$VERSION.linux.tar.gz \
  && tar -xvzf Radarr.develop.*.linux.tar.gz \
- && mv Radarr /var/lib/ && mv /var/lib/Radarr /var/lib/radarr \
+ && mkdir $RADARR_PATH && mv Radarr/* $RADARR_PATH \
  && rm Radarr.develop.*.linux.tar.gz
 
 FROM arm32v7/mono
